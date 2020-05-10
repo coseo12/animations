@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Eye ball Move on Mousemove</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Do not be happy to see others in trouble</h2>
+      <div class="face">
+        <div class="eyes">
+          <span class="eye"></span>
+          <span class="eye"></span>
+        </div>
+      </div>
+      <div class="face">
+        <div class="eyes">
+          <span class="eye"></span>
+          <span class="eye"></span>
+        </div>
+      </div>
+      <div class="face">
+        <div class="eyes">
+          <span class="eye"></span>
+          <span class="eye"></span>
+        </div>
+      </div>
+      <h2>Let's unite and fight together with Covid-19</h2>
+    </div>
+    <script>
+      document.querySelector("body").addEventListener("mousemove", eyeball);
+      function eyeball() {
+        const eye = document.querySelectorAll(".eye");
+        Object.entries(eye).map((el) => {
+          const x = el[1].getBoundingClientRect().left + el[1].clientWidth / 2;
+          const y = el[1].getBoundingClientRect().top + el[1].clientHeight / 2;
+          const radian = Math.atan2(event.pageX - x, event.pageY - y);
+          const rot = radian * (180 / Math.PI) * -1 + 270;
+          el[1].style.transform = `rotate(${rot}deg)`;
+        });
+      }
+    </script>
+  </body>
+</html>
