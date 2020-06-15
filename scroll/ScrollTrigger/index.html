@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Scroll Trigger</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <h2>Scroll To Begin</h2>
+    </section>
+    <div class="box">
+      <h2 class="text1">Scroll Trigger is Awesome</h2>
+      <h2 class="text2">This is My First Code</h2>
+      <h2 class="text3">How it is?</h2>
+      <img src="shoes.png" class="shoes" />
+    </div>
+    <div class="box2">
+      <h2 class="text4">Stay Tuned</h2>
+      <h2 class="text5">For more Videos</h2>
+      <h2 class="text6">Thanks For Watching :)</h2>
+    </div>
+    <script>
+      const event = (obj) => {
+        const scrollY = window.scrollY;
+        if (scrollY > obj.height) {
+          obj.styles.forEach((style) => {
+            obj.el.style[style.styleName] = style.styleValue;
+          });
+        } else {
+          obj.styles.forEach((style) => {
+            obj.el.style[style.styleName] = '';
+          });
+        }
+      };
+      const text1 = document.querySelector('.text1');
+      const text2 = document.querySelector('.text2');
+      const text3 = document.querySelector('.text3');
+      const text4 = document.querySelector('.text4');
+      const text5 = document.querySelector('.text5');
+      const text6 = document.querySelector('.text6');
+      const shoes = document.querySelector('.shoes');
+      const height = window.innerHeight;
+      window.addEventListener('scroll', () => {
+        event({
+          el: text1,
+          height: height * 0.5,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: text2,
+          height: height * 0.6,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: text3,
+          height: height * 0.7,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: shoes,
+          height: height * 0.8,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateY(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: text4,
+          height: height * 1.6,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: text5,
+          height: height * 1.7,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+        event({
+          el: text6,
+          height: height * 1.8,
+          styles: [
+            {
+              styleName: 'transform',
+              styleValue: 'translateX(0)',
+            },
+            {
+              styleName: 'opacity',
+              styleValue: '1',
+            },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
